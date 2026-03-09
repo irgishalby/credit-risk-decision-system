@@ -3,68 +3,53 @@
 ---
 
 ## Executive Summary
-* **Goal:** Build a machine learning system to approve or reject credit card applications.
-* **Inputs:** Uses applicant demographics and financial history.
-* **Outcome:** Prioritizes financial safety, successfully catching 100% of high-risk applicants in testing.
 
----
+* **Goal:** Develop an automated machine learning system to evaluate and decide on credit card applications.
+* **Inputs:** Integrated demographic profiles (income, employment, family status) and historical financial behavior.
+* **Outcome:** Successfully identified 100% of high-risk applicants in testing, prioritizing financial security.
 
 ## Problem Being Solved
-* Financial institutions lose significant revenue when customers default.
-* The specific challenge is identifying applicants likely to be overdue by more than 60 days *before* issuing a card.
 
----
+* **Financial Risk:** Financial institutions experience significant revenue loss when customers default on their credit obligations.
+* **Prediction Challenge:** Identifying applicants likely to be overdue by more than 60 days before a line of credit is issued.
 
 ## Dataset
-* **Source:** "Credit Card Approval Prediction" dataset from Kaggle.
-* **Content:** Merges demographic info (income, family status, employment) with historical credit records.
-* **Purpose:** Creates a complete profile of customer behavior for analysis.
 
----
+* **Source:** "Credit Card Approval Prediction" dataset retrieved from Kaggle.
+* **Content:** Merged demographic information with historical credit records to create a complete profile of customer behavior.
+* **Purpose:** Facilitate comprehensive analysis of applicant risk factors.
 
 ## Goal of the Project
-* Build a binary classification model to predict "bad customers."
-* **Business Priority:** Minimize risk.
-* **Focus:** Prioritize catching defaults rather than maximizing the volume of approved cards.
 
----
+* **Classification:** Build a binary classification model to accurately predict "bad customers".
+* **Business Priority:** Minimize institutional risk rather than maximizing application volume.
+* **Focus:** Prioritize the detection of potential defaults to ensure long-term profitability.
 
 ## Approach
-* Cleaned the data and engineered a target variable.
-* **Definition:** Defined a "bad customer" as anyone with overdue payments of 90 days or more.
-* **Preprocessing:** Handled missing occupation data and encoded categorical variables.
 
----
+* **Data Cleaning:** Handled missing occupation data and performed categorical encoding for model readiness.
+* **Target Engineering:** Defined a "bad customer" specifically as anyone with overdue payments of 90 days or more.
+* **Validation Strategy:** Conducted time-based validation by training on the oldest 70% of records and testing on the newest 30% to ensure production stability.
 
 ## Models Used
-* **Model:** Logistic Regression.
-* **Reasoning:** Selected for interpretability and speed.
-* **Configuration:** Applied "balanced" class weights because actual defaulters are rare compared to good customers.
 
----
+* **Logistic Regression:** Selected for high interpretability and computational efficiency.
+* **Random Forest Classifier:** Utilized to capture non-linear patterns and enhance prediction accuracy.
+* **Standardization:** Applied feature scaling to ensure uniform weight distribution across demographic and financial variables.
 
 ## Key Results
-* **Recall:** 1.00 (100%) for bad customers.
-    * *Meaning:* The model correctly identified every single high-risk applicant in the test set.
-* **Precision:** 0.09.
-    * *Meaning:* The model is very conservative and flags a significant number of safe customers as risky to ensure no bad debt slips through.
 
----
+* **Financial Optimization:** Implementation of a cost-aware threshold (0.04) minimized total business loss to zero in test scenarios.
+* **Economic Impact:** Realized IDR 19.5 million in reclaimed profit compared to standard classification techniques.
+* **Predictive Power:** Maintained a 1.00 F1-score during time-based validation, confirming high reliability for future accounts.
+* **Interpretability:** Leveraged SHAP (SHapley Additive exPlanations) values to identify key risk drivers in applicant profiles.
 
 ## How This Would Be Used in Practice
-This model serves as a **pre-screening filter**:
-* **Auto-Approve:** Applicants predicted as "safe" are approved immediately.
-* **Manual Review:** Applicants flagged as "risky" are sent to a human underwriter.
-* **Benefit:** Prevents the bank from auto-approving risky customers, while allowing borderline cases to be reviewed by actual people.
 
----
+* **Automated Screening:** Integration into the application pipeline for instantaneous approval or rejection based on risk scores.
+* **Dynamic Risk Management:** Ability to adjust decision thresholds in real-time according to changing financial constants and risk appetite.
 
 ## Limitations and Next Steps
-* **Limitation:** The current model generates high false alarms (False Positives), increasing manual workload.
-* **Next Step:** Test tree-based models (like Random Forest) to improve precision without sacrificing the perfect recall rate.
 
----
-
-## Repository Structure
-* `credit_risk_decision_system.ipynb`: Contains data cleaning, EDA, and modeling code.
-* `README.md`: Project summary and business context.
+* **Deployment:** Transition the validated model into a production environment for live application processing.
+* **Monitoring:** Establish continuous monitoring protocols to detect temporal drift in applicant behavior.
