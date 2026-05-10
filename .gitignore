@@ -1,0 +1,30 @@
+# Credentials & Secrets
+.env
+.streamlit/secrets.toml
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+build/
+dist/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Data (Ignore the Kaggle downloads)
+data/
+*.zip
+*.csv
+
+# Models
+# We keep these small enough to push so the app works on deploy
+!models/*.pkl
+
+# OS specific
+.DS_Store
+Thumbs.db
