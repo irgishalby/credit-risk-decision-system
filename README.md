@@ -98,8 +98,6 @@ Threshold tuning to **0.05** (below the default 0.5) shifts the decision boundar
 
 Correlation analysis revealed:
 
-$$\rho(\text{CNT\_FAM\_MEMBERS},\ \text{CNT\_CHILDREN}) = 0.89$$
-
 Keeping both features creates redundancy that inflates the apparent importance of family-related signals and can destabilize gradient-based models. `CNT_FAM_MEMBERS` was dropped, reducing noise and improving interpretability.
 
 ---
