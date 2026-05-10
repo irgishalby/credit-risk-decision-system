@@ -60,7 +60,7 @@ Raw Data (Kaggle)
 
 ### Hurdle 1 — The Imbalance Problem
 
-![Extreme Imbalance](assets/cutomers-distribution.png)
+![Extreme Imbalance](assets/customers-distribution.png)
 
 **0.26% minority class.** Accuracy as a metric was useless, a model that predicts "Good" for everyone scores 99.74% and is worthless. This forced a complete rethink of the evaluation strategy from the start.
 
