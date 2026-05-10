@@ -110,11 +110,7 @@ Two custom features drove measurable performance gains:
 
 **`income_per_capita`** — Raw income is misleading. A ₽427,500 salary supporting 5 children is financially equivalent to ₽90,000 per person. This feature captures actual financial breathing room.
 
-$$\text{income\_per\_capita} = \frac{\text{AMT\_INCOME\_TOTAL}}{\text{CNT\_CHILDREN} + 1}$$
-
 **`work_life_ratio`** — A 25-year-old with 2 years of employment and a 55-year-old with 2 years of employment are not the same risk profile. This ratio captures employment stability *relative to age*, which is exactly the heuristic a seasoned loan officer would apply manually.
-
-$$\text{work\_life\_ratio} = \frac{\text{YEARS\_EMPLOYED}}{\text{AGE}}$$
 
 SHAP analysis validated the intuition: **`work_life_ratio` ranked 3rd in global feature importance**, confirming that stability predicts default better than raw income.
 
